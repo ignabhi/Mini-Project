@@ -1,0 +1,115 @@
+{% extends "signup.html" %}
+{% block body %}
+
+<form action="/usersignuppost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-hover">
+    <tr>
+      <th width="200" scope="row" bgcolor="#ff8c00">Name</th>
+      <td>
+        <input type="text" name="textfield" required class="form-control" pattern="[a-zA-Z]{2,30}" placeholder="Enter Name" title="Please enter alphabets"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Phone</th>
+      <td>
+        <input type="text" name="textfield2" required class="form-control" pattern="[789][0-9]{9}" placeholder="Enter Phone Number"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Email</th>
+      <td>
+        <input type="text" name="textfield3" required class="form-control" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Enter Email Address"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Photo</th>
+      <td>
+        <input type="file" name="file" required/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Gender</th>
+      <td>
+        <select name="select" class="form-control">
+            <option value="male" >Male</option>
+            <option value="female" >Female</option>
+          </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Place </th>
+      <td>
+        <input type="text" name="textfield4" required class="form-control" placeholder="Enter Address"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">City</th>
+      <td>
+        <input type="text" name="textfield5" required class="form-control" placeholder="Enter City"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">State</th>
+      <td>
+        <input type="text" name="textfield6" required class="form-control" pattern="[a-zA-z]{8,50}" placeholder="Enter State"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Pincode</th>
+      <td>
+        <input type="text" name="textfield7" required class="form-control" pattern="[1-9]{6}" placeholder="Enter Pin Code"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Password</th>
+      <td>
+        <input type="password" name="textfield8" id="textfield8" required class="form-control" minlength="8" maxlength="30" placeholder="Enter Passord"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Confirm Password </th>
+      <td>
+        <input type="password" name="textfield9" id="textfield9" required class="form-control" onkeyup="validate_password()" minlength="8" maxlength="30" placeholder="Confirm Password"/>
+          <span id="wrong_pass_alert"></span>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><div align="center">
+        <input type="submit" id="create" name="Submit" value="SignUp" class="btn btn-primary btn-style"/>
+      </div></th>
+    </tr>
+
+
+      <script>
+		function validate_password() {
+
+			var pass = document.getElementById('textfield8').value;
+			var confirm_pass = document.getElementById('textfield9').value;
+			if (pass != confirm_pass) {
+				document.getElementById('wrong_pass_alert').style.color = 'red';
+				document.getElementById('wrong_pass_alert').innerHTML
+				= '☒ Use same password';
+				document.getElementById('create').disabled = true;
+				document.getElementById('create').style.opacity = (0.4);
+			} else {
+				document.getElementById('wrong_pass_alert').style.color = 'green';
+				document.getElementById('wrong_pass_alert').innerHTML =
+					'🗹 Password Matched';
+				document.getElementById('create').disabled = false;
+				document.getElementById('create').style.opacity = (1);
+			}
+		}
+
+		function wrong_pass_alert() {
+			if (document.getElementById('pass').value != "" &&
+				document.getElementById('confirm_pass').value != "") {
+				alert("Your response is submitted");
+			} else {
+				alert("Please fill all the fields");
+			}
+		}
+	</script>
+  </table>
+</form>
+
+{% endblock %}

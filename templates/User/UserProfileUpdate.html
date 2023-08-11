@@ -1,0 +1,74 @@
+{% extends "listing.html" %}
+{% block body %}
+    
+<form id="form1" name="form1" method="post" action="/editprofilepost" enctype="multipart/form-data">
+  <table align="center" class="table table-hover">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Name</th>
+      <td>
+        <input type="text" name="textfield" value="{{ data["username"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Phone</th>
+      <td>
+        <input type="text" name="textfield2" value="{{ data["phone"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Email</th>
+      <td>
+        <input type="text" name="textfield3" value="{{ data["email"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Photo</th>
+      <td>
+        <input type="file" name="file" class="form-control-file">
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Gender</th>
+      <td>
+          <select name="select" class="form-control">
+            <option value="male" {% if data['gender']=="male" %}selected {% endif %}>Male</option>
+            <option value="female" {% if data['gender']=="female" %}selected {% endif %}>Female</option>
+          </select>
+{#        <input type="radio" name="radiobutton" value="male" {% if data['gender']=="male" %}checked {% endif %}/>Male#}
+{#        <input type="radio" name="radiobutton" value="female" {% if data['gender']=="female" %}checked {% endif %}/>Female</td>#}
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Place </th>
+      <td>
+        <input type="text" name="textfield4" value="{{ data["place"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">City</th>
+      <td>
+        <input type="text" name="textfield5" value="{{ data["city"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">State</th>
+      <td>
+        <input type="text" name="textfield6" value="{{ data["state"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Pincode</th>
+      <td>
+        <input type="text" name="textfield7" value="{{ data["pincode"] }}" class="form-control"/>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+          <div align="center">
+        <input type="submit" name="Submit" value="Update" class="btn btn-primary btn-style"/>
+          </div>
+      </th>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

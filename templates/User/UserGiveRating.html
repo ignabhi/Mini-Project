@@ -1,0 +1,32 @@
+{% extends "listing.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/giverating">
+  <table class="table table-hover">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00" width="200">Rating</th>
+        <td>
+            <select name="select" class="form-control">
+                <option value="1">1 star</option>
+                <option value="2">2 star</option>
+                <option value="3">3 star</option>
+                <option value="4">4 star</option>
+                <option value="5">5 star</option>
+          </select>
+        </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Review</th>
+      <th scope="row">
+        <input type="text" name="textfield2" class="form-control"/>
+      </th>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><div align="center">
+        <input type="submit" name="Submit" value="Submit" class="btn btn-primary btn-style"/>
+      </div></th>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

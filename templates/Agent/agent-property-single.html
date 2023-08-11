@@ -1,0 +1,148 @@
+{% extends "listing.html" %}
+{% block body %}
+
+<section class="w3l-blog post-content py-5">
+    <div class="container py-lg-4 py-md-3 py-2">
+        <div class="inner mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <div class="listing-category"><span> {{ data["saletype"] }} </span></div>
+                </li>
+                Upload date <li><span class="fa fa-clock-o"></span> {{ data["uploaddate"] }} </li>
+                Available from <li><span class="fa fa-calendar"></span> {{ data["availabledate"] }}</li>
+            </ul>
+        </div>
+        <div class="post-content">
+            <h2 class="title-single"> {{ data["propertytitle"] }} </h2>
+        </div>
+        <div class="blo-singl mb-4">
+            <ul class="blog-single-author-date align-items-center">
+                <li>
+                    <p>{{ data["propertylocation"] }}, {{ data["city"] }} {{ data["state"] }}, {{ data["country"] }}</p>
+                </li>
+{#                <li><span class="fa fa-bed"></span> 3 Beds</li>#}
+{#                <li><span class="fa fa-bath"></span> 4 Baths</li>#}
+{#                <li><span class="fa fa-share-square-o"></span> 1258 sqrft</li>#}
+            </ul>
+            <ul class="share-post">
+                <a href="#url" class="cost-estate m-o">Rs {{ data["priceofproperty"] }} </a>
+            </ul>
+        </div>
+        <div class="row">
+            <div class="col-lg-8 w3l-news">
+                <div class="blog-single-post">
+                    <div class="single-post-image mb-5">
+                        <div class="owl-blog owl-carousel owl-theme">
+                            <div class="item">
+                                <div class="card">
+                                    <img src=" {{ data["pic1"] }} " class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src=" {{ data["pic2"] }} " class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                            <div class="item">
+                                <div class="card">
+                                    <img src=" {{ data["pic3"] }} " class="img-fluid radius-image" alt="image">
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="single-post-content">
+                        <h3 class="post-content-title mb-3">Description</h3>
+                        <p class="mb-4">
+                             {{ data["propertydescription"] }}  </p>
+{#                        <p class="mb-4">When you decide to put your business online it is a little bet tricky step#}
+{#                            for novice#}
+{#                            computer users because they want to keep data safe & secure.#}
+{#                            This problem developed from companies which did not take security seriously. Lorem ipsum#}
+{#                            dolor sit amet elit. </p>#}
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Property detail</h3>
+                            <ul class="details-list">
+                                <li><strong>Property id :</strong> {{ data["propertyid"] }} </li>
+                                <li><strong>Type :</strong> {{ data["propertytype"] }} </li>
+                                <li><strong>Property size :</strong> {{ data["housesqft"] }} sqft </li>
+                                <li><strong>Total area :</strong> {{ data["totalarea"] }} cents </li>
+                                <li><strong>Bedrooms :</strong> {{ data["totalbeds"] }} </li>
+                                <li><strong>Bathrooms :</strong> {{ data["totalbaths"] }} </li>
+                                <li><strong>Garages :</strong> {{ data["totalgarages"] }} </li>
+                                <li><strong>Built Year :</strong> {{ data["yearbuilt"] }} </li>
+{#                                <li><strong>Avaiable from :</strong> {{ data["availabledate"] }} </li>#}
+{#                                <li><strong>Rooms :</strong> {{ data["totalrooms"] }} </li>#}
+{#                                <li><strong>Structure type :</strong> {{ data[""] }} </li>#}
+{#                                <li><strong>Property Price :</strong> $ {{ data["priceofproperty"] }} </li>#}
+
+                            </ul>
+                        </div>
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Amenities</h3>
+                            <ul class="details-list">
+                                {% for i  in ss %}
+                                <li><strong>{{ i }} </strong></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                        <div class="single-bg-white">
+                            <h3 class="post-content-title mb-4">Nearest Facilities</h3>
+                            <ul class="details-list">
+                                {% for i  in qq %}
+                                <li><strong>{{ i }} </strong></li>
+                                {% endfor %}
+                            </ul>
+                        </div>
+
+                    </div>
+
+{#                    <div class="single-bg-white">#}
+{#                        <h3 class="post-content-title mb-4">Location</h3>#}
+{#                        <div class="agent-map">#}
+{#                            <iframe#}
+{#                                src="{{ data["propertylocation"] }}"#}
+{#                                frameborder="0" style="border:0" allowfullscreen=""></iframe>#}
+{#                        </div>#}
+{#                    </div>#}
+
+                    <div class="single-bg-white mb-0">
+                        <h3 class="post-content-title mb-4">Video</h3>
+                        <div class="post-content">
+                            <iframe src="{{ data["video"] }}" frameborder="0"
+                                allowfullscreen="" allow="autoplay"></iframe>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="sidebar-side col-lg-4 col-md-12 col-sm-12 mt-lg-0 mt-5">
+                <aside class="sidebar">
+
+                    <!-- Popular Post Widget-->
+                    <div class="sidebar-widget popular-posts">
+                        <div class="sidebar-title">
+                            <h4>Contact Agent</h4>
+                        </div>
+
+                        <article class="post">
+                            <figure class="post-thumb"><img src="{{ data["photo"] }}" class="radius-image" alt="" width="50" height="80">
+                            </figure>
+                            <div class="text mb-0"><a href="#blog-single">{{ data["agentname"] }}
+                                </a>
+                                <div class="post-info">{{ data["phone"] }}</div>
+                                <div class="post-info">{{ data["email"] }}</div>
+                            </div>
+                        </article>
+                        <a href="/user_sentinterest{{ data["propertyid"] }}" class="btn btn-primary btn-style w-100">Send Interest</a>
+{#                        <button type="submit" class="btn btn-primary btn-style w-100">Send Interest</button>#}
+                    </div>
+
+
+                </aside>
+            </div>
+        </div>
+    </div>
+</section>
+
+{% endblock %}

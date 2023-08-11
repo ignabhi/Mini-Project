@@ -1,0 +1,38 @@
+{% extends "listing.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+  <table class="table table-hover">
+    <tr>
+      <th width="200" scope="col" bgcolor="#ff8c00">Name</th>
+	    <td> {{ data["username"] }} </td>
+	</tr>
+		<tr>
+      <th scope="col" bgcolor="#ff8c00">Phone</th>
+	  	<td> {{ data["phone"] }} </td>
+	 	</tr>
+		<tr>
+      <th scope="col" bgcolor="#ff8c00">Email</th>
+	    <td> {{ data["email"] }} </td>
+		</tr>
+		<tr>
+      <th scope="col" bgcolor="#ff8c00">Photo</th>
+	    <td> <img src="{{ data["photo"] }}" height="50px" width="50" alt="" class="rounded-circle"/> </td>
+		</tr>
+		<tr>
+		  <th scope="col" bgcolor="#ff8c00">Gender</th>
+		  <td> {{ data['gender'] }} </td>
+    </tr>
+		<tr>
+      <th scope="col" bgcolor="#ff8c00">Address</th>
+	  	<td> {{ data["place"] }} <br>  {{ data["city"] }} <br>  {{ data["state"] }} <br></td>
+		</tr>
+		<tr>
+      <th colspan="2"><div align="center"  >
+        <a href="/user_editprofile#locations" class="btn btn-primary btn-style">Edit</a>
+      </div>
+	</tr>
+  </table>
+</form>
+
+{% endblock %}

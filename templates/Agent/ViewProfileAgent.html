@@ -1,0 +1,41 @@
+{% extends "Agenthome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/agent_viewprofile">
+  <table class="table table-hover" width="200">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00" width="200">Agent Name </th>
+      <td> {{ data["agentname"] }} </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Phone</th>
+      <td> {{ data["phone"] }} </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Email</th>
+      <td> {{ data["email"] }} </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Photo</th>
+      <td><img src="{{ data["photo"] }}" height="50" width="50" class="rounded-circle"> </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Gender</th>
+      <td> {{ data["gender"] }} </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">About</th>
+      <td> {{ data["about"] }} </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row" > <div align="center">
+          <a href="/agent_editprofile#locations" class="btn btn-primary btn-style">Edit</a>
+      </div></th>
+{#      <th colspan="2" scope="row" > <div align="center">#}
+{#          <a href="/agent_changepassword" class="btn btn-primary btn-style">Change Password</a>#}
+{#      </div></th>#}
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

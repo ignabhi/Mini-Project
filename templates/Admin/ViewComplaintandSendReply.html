@@ -1,0 +1,35 @@
+{% extends 'Adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/admin_viewcomplaint_searchcomplaint#locations">
+    <table class="table table-hover">
+        <tr>
+            <th>From</th><td><input type="date" name="d1" class="form-control"/></td>
+            <th>To</th><td><input type="date" name="d2" class="form-control"/></td>
+            <td><input type="submit" name="s1" value="Go" class="btn btn-primary btn-style"></td>
+        </tr>
+    </table>
+  <table class="table table-hover">
+    <tr>
+      <th scope="col" bgcolor="#ff8c00">SNo</th>
+      <th scope="col" bgcolor="#ff8c00">Complaint</th>
+      <th scope="col" bgcolor="#ff8c00">Date</th>
+      <th scope="col" bgcolor="#ff8c00">Status</th>
+      <th scope="col" bgcolor="#ff8c00">Reply</th>
+      <th scope="col" bgcolor="#ff8c00">User Name</th>
+      <th scope="col" bgcolor="#ff8c00">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td> {{ loop.index }} </td>
+      <td> {{ i["complaint"] }} </td>
+      <td> {{ i["date"] }} </td>
+      <td> {{ i["status"] }} </td>
+      <td> {{ i["reply"] }} </td>
+      <td> {{ i["username"] }} </td>
+      <td><a href="/admin_sendcomplaintreply/{{ i['complaintid'] }}#locations" class="btn btn-primary btn-style">Reply</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

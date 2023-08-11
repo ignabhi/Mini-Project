@@ -1,0 +1,183 @@
+{% extends "Agenthome.html" %}
+{% block body %}
+
+<form action="/addpropertypost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-hover">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00" width="200">Property Title </th>
+      <td>
+        <input type="text" name="textfield" class="form-control" required placeholder="Enter Property Title"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Type </th>
+      <td>
+        <select name="select" class="form-control" required>
+          <option value="Residential">Residential</option>
+          <option value="Commercial">Commercial</option>
+{#          <option value="Vacant Land">Vacant Land</option>#}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Expected Price </th>
+      <td>
+        <input type="text" name="textfield2" class="form-control" required placeholder="Enter Expected Price"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Area </th>
+      <td>
+        <input type="text" name="textfield3" class="form-control" required placeholder="Enter Total Area"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">House Area (Sqft) </th>
+      <td>
+        <input type="text" name="textfield4" class="form-control" required placeholder="Enter House Area"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Beds </th>
+      <td>
+        <input type="text" name="textfield5" class="form-control" required placeholder="Enter Total Number of Beds"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Baths </th>
+      <td>
+        <input type="text" name="textfield6" class="form-control" required placeholder="Enter Total Number of Baths"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Garages </th>
+      <td>
+        <input type="text" name="textfield7" class="form-control" required placeholder="Enter Total number of Garages"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Address</th>
+      <td>
+        <textarea name="textarea" class="form-control" required placeholder="Enter Address"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">City</th>
+      <td>
+        <input type="text" name="textfield8" class="form-control" required placeholder="Enter City"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">State</th>
+      <td>
+        <input type="text" name="textfield9" class="form-control" required placeholder="Enter State"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Pin</th>
+      <td>
+        <input type="text" name="textfield10" class="form-control" required placeholder="Enter Pin Code"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Country</th>
+      <td>
+        <input type="text" name="textfield11" class="form-control" required placeholder="Enter Country"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Landmarks</th>
+      <td>
+        <textarea name="textarea2" class="form-control" required placeholder="Enter Landmarks"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 1 </th>
+      <td>
+        <input type="file" name="file" required/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 2 </th>
+      <td>
+        <input type="file" name="file2" required/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 3 </th>
+      <td>
+        <input type="file" name="file3" required/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Video</th>
+      <td>
+        <input type="file" name="file4" required/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Description</th>
+      <td>
+        <textarea name="textarea3" class="form-control" required placeholder="Enter Property Description"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Map Location </th>
+      <td>
+        <input type="text" name="textfield12" class="form-control" required placeholder="Enter Map Location"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Amenities</th>
+      <td>
+
+          <textarea name="textarea5" class="form-control" required placeholder="Enter Amentities(Seperate values with Commas)"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Status </th>
+      <td>
+        <select name="select2" class="form-control">
+          <option value="Available">Available</option>
+{#          <option value="Sold">Sold</option>#}
+          <option value="Not-Available">Not-Available</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Sale Type </th>
+      <td>
+        <select name="select3" class="form-control">
+          <option value="Sell">Sell</option>
+          <option value="Rent">Rent</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Available Date </th>
+      <td>
+        <input type="text" name="textfield14" class="form-control" required placeholder="Enter Available Date(YYYY-MM-DD)"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Year Built </th>
+      <td>
+        <input type="text" name="textfield13" class="form-control" required placeholder="Enter Year Built"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Nearest Facilities </th>
+      <td>
+        <textarea name="textarea4" class="form-control" required placeholder="Enter Nearest Facilities(Seperate values with Commas)"></textarea>
+      </td>
+    </tr>
+	<tr>
+      <th colspan="2" scope="row"><div align="center">
+        <input type="submit" name="Submit" value="Add" class="btn btn-primary btn-style"/></div>
+
+      </th>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

@@ -1,0 +1,24 @@
+{% extends 'Adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/rejectapprovedagents">
+  <p>
+
+    <input type="text" name="aid" value="{{ id }}" hidden/>
+
+  </p>
+  <table class="table table-hover">
+    <tr>
+      <th width="51" scope="row" bgcolor="#ff8c00">Reason</th>
+      <td width="201">
+        <textarea name="textarea" class="form-control"></textarea>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><div align="center">
+          <input type="submit" name="Submit" value="Reject" class="btn btn-danger"/></div>
+      </th>
+    </tr>
+  </table>
+</form>
+{% endblock %}

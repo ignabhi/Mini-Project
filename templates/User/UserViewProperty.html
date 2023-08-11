@@ -1,0 +1,185 @@
+{% extends "listing.html" %}
+{% block body %}
+
+
+    <form action="/propertysearch" method="post" enctype="multipart/form-data" name="form1" id="form1">
+    <table class="table table-hover">
+        <tr>
+            <th scope="col" width="200">Search</th>
+            <th><input type="text" name="search" class="form-control"></th>
+    <th width="45" scope="col"><input type="submit" class="btn btn-primary btn-style"></th>
+    </tr></table>
+    </form>
+
+
+<div class="row">
+{% for i in data %}
+                <div class="col-lg-4 col-md-6 listing-img">
+                    <a href="/user_propertysingle{{ i["propertyid"] }}#locations">
+                        <div class="box16">
+                            <div class="rentext-listing-category"><span>{{ i["saletype"] }}</span></div>
+                            <img class="img-fluid" src="{{ i['pic1'] }}" alt="image">
+                            <div class="box-content">
+                                <h3 class="title">Rs {{ i['priceofproperty'] }}</h3>
+                            </div>
+                        </div>
+                    </a>
+                    <div class="listing-details blog-details align-self">
+                        <h4 class="user_title agent">
+                            <a href="/user_propertysingle{{ i["propertyid"] }}#locations">{{ i["propertytitle"] }}</a>
+                        </h4>
+                        <p class="user_position">{{ i["propertylocation"] }}, {{ i["city"] }} {{ i["state"] }}, {{ i["country"] }}</p>
+                        <ul class="mt-3 estate-info">
+                            <li><span class="fa fa-bed"></span> {{ i["totalbeds"] }} Beds</li>
+                            <li><span class="fa fa-shower"></span> {{ i["totalbaths"] }} Baths</li>
+                            <li><span class="fa fa-share-square-o"></span> {{ i["housesqft"] }} Sqft</li>
+                            <li><span class="fa fa-car"></span> {{ i["totalgarages"] }} Garages</li>
+                            <li><span class="fa fa-area-chart"></span> {{ i["totalarea"] }} Cents Area</li>
+                        </ul>
+                        <div class="author align-items-center mt-4">
+                            <a href="#img" class="comment-img">
+                                <img src="{{ i["photo"] }}" alt="" class="img-fluid">
+                            </a>
+                            <ul class="blog-meta">
+                                <li>
+                                    <a href="#url">{{ i["agentname"] }} </a>
+                                </li>
+                                <li class="meta-item blog-lesson">
+                                    <span class="meta-value"> Selling agent</span>
+                                </li>
+                            </ul>
+                        </div>
+                    </div>
+                </div>
+
+{% endfor %}
+
+
+            </div>
+
+
+
+{#<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">#}
+{#<html xmlns="http://www.w3.org/1999/xhtml">#}
+{#<head>#}
+{#<meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />#}
+{#<title>View Property User</title>#}
+{#</head>#}
+{##}
+{#<body>#}
+{#<form id="form1" name="form1" method="post" action="">#}
+{#  <table width="279" border="1">#}
+{#    <tr>#}
+{#      <th width="46" scope="col">Search</th>#}
+{#      <th width="144" scope="col"><label>#}
+{#        <input type="text" name="textfield" />#}
+{#      </label></th>#}
+{#      <th width="95" scope="col"><label>#}
+{#        <input type="submit" name="Submit" value="Go" />#}
+{#      </label></th>#}
+{#    </tr>#}
+{#  </table>#}
+{#  <table width="2455" border="1">#}
+{#    <tr>
+  <th width="100" scope="col">SNo</th>
+  <th width="124" scope="col">Property Name </th>
+  <th width="133" scope="col">Property Title </th>
+  <th width="142" scope="col">Property Type </th>
+  <th width="169" scope="col">Expected Price </th>
+  <th width="123" scope="col">Total Area </th>
+  <th width="140" scope="col">House Area</th>
+  <th width="120" scope="col">Total Beds </th>
+  <th width="125" scope="col">Total Baths </th>
+  <th width="143" scope="col">Total Garages </th>
+  <th width="159" scope="col">Address</th>
+  <th width="89" scope="col">Landmarks</th>
+  <th width="122" scope="col">Pictures</th>
+  <th width="126" scope="col">Video</th>
+  <th width="217" scope="col">Property Description</th>
+  <th width="140" scope="col">Map Location </th>
+  <th width="177" scope="col">Amentities</th>
+  <th width="180" scope="col">Property Status </th>
+  <th width="178" scope="col">Upload Date </th>
+  <th width="176" scope="col">Sale Type </th>
+  <th width="179" scope="col">Available Date </th>
+  <th width="189" scope="col">Year Built </th>
+  <th width="189" scope="col">Nearest Facilities</th>
+  #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      <th width="9" scope="col">&nbsp;</th>#}
+{#    </tr>#}
+{#      {% for i in data %}#}
+{#    <tr>
+  <td> {{ loop.index }} </td>
+  <td> {{ i["agentname"] }} </td>
+  <td> {{ i["propertytitle"] }} </td>
+  <td> {{ i["propertytype"] }} </td>
+  <td> {{ i["priceofproperty"] }} </td>
+  <td> {{ i["totalarea"] }} </td>
+  <td> {{ i["housesqft"] }} </td>
+  <td> {{ i["totalbeds"] }} </td>
+  <td> {{ i["totalbaths"] }} </td>
+  <td> {{ i["totalgarages"] }} </td>
+  <td> {{ i["propertylocation"] }} <br>
+    {{ i["city"] }} <br>
+    {{ i["state"] }} <br>
+    {{ i["pin"] }} <br>
+    {{ i["country"] }} </td>
+  <td> {{ i["landmarks"] }} </td>
+  <td> {{ i["pic1"] }} <br>
+    {{ i["pic2"] }} <br>
+    {{ i["pic3"] }} </td>
+  <td> {{ i["video"]}} </td>
+  <td> {{ i["propertydescription"] }} </td>
+  <td> {{ i["gmaplocation"] }} </td>
+  <td> {{ i["amentities"] }} </td>
+  <td> {{ i["propertystatus"] }} </td>
+  <td> {{ i["uploaddate"] }} </td>
+  <td> {{ i["saletype"] }} </td>
+  <td> {{ i["availabledate"] }} </td>
+  <td> {{ i["yearbuilt"] }} </td>
+  <td> {{ i["nearestfacilities"] }} </td>
+  #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      #}
+{#      <td><div align="center"><a href="/user_sentinterest{{ i["propertyid"] }}">Send Interest</a></div></td>#}
+{#    </tr>#}
+{#      {% endfor %}#}
+{#  </table>
+#}
+{#</form>#}
+{#</body>#}
+{#</html>#}
+
+{% endblock %}

@@ -1,0 +1,192 @@
+{% extends "Agenthome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/editpropertypost" enctype="multipart/form-data">
+  <p>
+
+    <input type="text" value="{{ id }}" name="pid" hidden/>
+
+  </p>
+  <table class="table table-hover">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Title </th>
+      <td>
+        <input type="text" name="textfield" value="{{ data['propertytitle'] }}" class="form-control" required placeholder="Enter Property Title"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Type </th>
+      <td>
+        <select name="select" class="form-control">
+          <option value="Residential" {% if data['propertytype']=="Residential" %}selected {% endif %}>Residential</option>
+          <option value="Commercial" {% if data['propertytype']=="Commercial" %}selected {% endif %}>Commercial</option>
+{#          <option value="Vacant Land" {% if data['propertytype']=="Vacant Land" %}selected {% endif %}>Vacant Land</option>#}
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Expected Price </th>
+      <td>
+        <input type="text" name="textfield2" value="{{ data['priceofproperty'] }}" class="form-control" required placeholder="Enter Expected Price"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Area </th>
+      <td>
+        <input type="text" name="textfield3" value="{{ data['totalarea'] }}" class="form-control" required placeholder="Enter Total Area"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">House Area (Sqft) </th>
+      <td>
+        <input type="text" name="textfield4" value="{{ data['housesqft'] }}" class="form-control" required placeholder="Enter House Area"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Beds </th>
+      <td>
+        <input type="text" name="textfield5" value="{{ data['totalbeds'] }}" class="form-control" required placeholder="Enter Total Number of Beds"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Baths </th>
+      <td>
+        <input type="text" name="textfield6" value="{{ data['totalbaths'] }}" class="form-control" required placeholder="Enter Total Number of Baths"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Total Garages </th>
+      <td>
+        <input type="text" name="textfield7" value="{{ data['totalgarages'] }}" class="form-control" required placeholder="Enter Total number of Garages"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Address</th>
+      <td>
+        <textarea name="textarea" class="form-control" required placeholder="Enter Address">{{ data['propertylocation'] }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">City</th>
+      <td>
+        <input type="text" name="textfield8" value="{{ data['city'] }}" class="form-control" required placeholder="Enter City"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">State</th>
+      <td>
+        <input type="text" name="textfield9" value="{{ data['state'] }}" class="form-control" required placeholder="Enter State"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Pin</th>
+      <td>
+        <input type="text" name="textfield10" value="{{ data['pin'] }}" class="form-control" required placeholder="Enter Pin Code"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Country</th>
+      <td>
+        <input type="text" name="textfield11" value="{{ data['country'] }}" class="form-control" required placeholder="Enter Country"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Landmark</th>
+      <td>
+        <textarea name="textarea2" class="form-control" required placeholder="Enter Landmarks">{{ data['landmarks'] }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 1 </th>
+      <td><img src="{{ data['pic1'] }}" height="50" width="50" alt="Image" class="rounded-circle">
+        <input type="file" name="file1" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 2 </th>
+      <td><img src="{{ data['pic2'] }}" height="50" width="50" alt="Image" class="rounded-circle">
+        <input type="file" name="file2" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Picture 3 </th>
+      <td><img src="{{ data['pic3'] }}" height="50" width="50" alt="Image" class="rounded-circle">
+        <input type="file" name="file3" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Video</th>
+      <td>
+        <input type="file" name="file4" />
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Description</th>
+      <td>
+        <textarea name="textarea3" class="form-control" required placeholder="Enter Property Description">{{ data['propertydescription'] }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Map Location </th>
+      <td>
+        <input type="text" name="textfield12" value="{{ data['gmaplocation'] }}" class="form-control" required placeholder="Enter Map Location"/>
+      </td>
+    </tr>
+
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Amenities</th>
+      <td> <textarea name="textarea5" class="form-control" required placeholder="Enter Amentities(Seperate values with Commas)"> {{ data["amentities"] }} </textarea>
+
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Property Status </th>
+      <td>
+        <select name="select2" class="form-control">
+          <option value="Available" {% if data['propertystatus']=="Available" %}selected {% endif %}>Available</option>
+          <option value="Sold" {% if data['propertystatus']=="Sold" %}selected {% endif %}>Sold</option>
+          <option value="Not-Available" {% if data['propertystatus']=="Not-Available" %}selected {% endif %}>Not-Available</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Sale Type </th>
+      <td>
+        <select name="select3" class="form-control">
+           <option value="Sell" {% if data['saletype']=="Sell" %}selected {% endif %}>Sell</option>
+          <option value="Rent" {% if data['saletype']=="Rent" %}selected {% endif %}>Rent</option>
+        </select>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Available Date </th>
+      <td>
+        <input type="text" name="textfield14" value="{{ data['availabledate'] }}" class="form-control" required placeholder="Enter Available Date(YYYY-MM-DD)"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Year Built </th>
+      <td>
+        <input type="text" name="textfield13" value="{{ data['yearbuilt'] }}" class="form-control" required placeholder="Enter Year Built"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Nearest Facilities </th>
+      <td>
+        <textarea name="textarea4" class="form-control" required placeholder="Enter Nearest Facilities(Seperate values with Commas)">{{ data['nearestfacilities'] }}</textarea>
+      </td>
+    </tr>
+  <tr>
+      <th scope="row" bgcolor="#ff8c00">Bought By </th>
+      <td>
+                <input type="text" name="textfield20" value="{{ data['bought'] }}" class="form-control" required placeholder="Enter User Name"/>
+
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row"><div align="center">
+        <input type="submit" name="Submit" value="Update" class="btn btn-primary btn-style"/>
+      </div></th>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

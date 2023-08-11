@@ -1,0 +1,73 @@
+{% extends 'Adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/admin_viewpropertiesaddedbyagentssearch#locations">
+  <table class="table table-hover">
+    <tr>
+      <th><div align="center">Search</div></th>
+      <td>
+        <input type="text" name="textfield" class="form-control"/>
+      </td>
+      <td width="45">
+        <input type="submit" name="Submit" value="Go" class="btn btn-primary btn-style"/>
+      </td>
+    </tr>
+  </table>
+  <table class="table table-hover">
+    <tr style="background-color: #ff8c00">
+      <th width="200" scope="col" >SNo</th>
+      <th  scope="col">Agent Name </th>
+      <th  scope="col">Property Title </th>
+      <th  scope="col">Property Type </th>
+      <th  scope="col">Expected Price </th>
+{#      <th  scope="col">Total Area </th>#}
+{#      <th  scope="col">House Area</th>#}
+{#      <th  scope="col">Total Beds </th>#}
+{#      <th  scope="col">Total Baths  </th>#}
+{#      <th  scope="col">Total Garages </th>#}
+      <th  scope="col">Address</th>
+      <th  scope="col">Landmarks</th>
+{#      <th  scope="col">Pictures</th>#}
+{#      <th  scope="col">Video</th>#}
+{#      <th  scope="col">Property Description</th>#}
+      <th  scope="col">Map Location </th>
+      <th  scope="col">Amentities</th>
+      <th  scope="col">Property Status </th>
+      <th  scope="col">Upload Date </th>
+      <th  scope="col">Sale Type </th>
+      <th  scope="col">Available Date </th>
+      <th  scope="col">Year Built </th>
+      <th  scope="col">Nearest Facilities</th>
+        <th  scope="col">Bought By</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td> {{ loop.index }} </td>
+      <td> {{ i["agentname"] }} </td>
+      <td> {{ i["propertytitle"] }} </td>
+      <td> {{ i["propertytype"] }} </td>
+      <td> {{ i["priceofproperty"] }} </td>
+{#      <td> {{ i["totalarea"] }} </td>#}
+{#      <td> {{ i["housesqft"] }} </td>#}
+{#      <td> {{ i["totalbeds"] }} </td>#}
+{#      <td> {{ i["totalbaths"] }} </td>#}
+{#      <td> {{ i["totalgarages"] }} </td>#}
+      <td> {{ i["propertylocation"] }} <br>  {{ i["city"] }}  <br>  {{ i["state"] }}  <br>  {{ i["pin"] }}  <br>  {{ i["country"] }}  </td>
+      <td> {{ i["landmarks"] }} </td>
+{#      <td> <img src="{{ i["pic1"] }}" alt="Image" height="100" width="100"/>  <img src="{{ i["pic2"] }}" alt="Image" height="100" width="100"/>  <img src="{{ i["pic3"] }}" alt="Image" height="100" width="100"/> </td>#}
+{#      <td> {{ i["video"]}}  </td>#}
+{#      <td> {{ i["propertydescription"] }} </td>#}
+      <td> {{ i["gmaplocation"] }} </td>
+      <td> {{ i["amentities"] }} </td>
+      <td> {{ i["propertystatus"] }} </td>
+      <td> {{ i["uploaddate"] }} </td>
+      <td> {{ i["saletype"] }} </td>
+      <td> {{ i["availabledate"] }} </td>
+      <td> {{ i["yearbuilt"] }} </td>
+      <td> {{ i["nearestfacilities"] }}  </td>
+    <td> {{ i["bought"] }}  </td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,77 @@
+{% extends "Agenthome.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/agent_viewpropertiessearch#locations">
+  <table class="table table-hover">
+    <tr>
+      <th scope="col" width="200">Search</th>
+      <th scope="col">
+        <input type="text" name="textfield" class="form-control"/>
+      </th>
+      <th width="45" scope="col">
+        <input type="submit" name="Submit" value="Go" class="btn btn-primary btn-style"/>
+      </th>
+    </tr>
+  </table>
+
+  <table class="table table-hover">
+    <tr style="background-color: darkorange">
+      <th width="200" scope="col">SNo</th>
+      <th width="104" scope="col">Property Title </th>
+      <th width="109" scope="col">Property Type </th>
+      <th width="126" scope="col">Expected Price </th>
+{#      <th width="84" scope="col">Total Area </th>#}
+{#      <th width="90" scope="col">House Area</th>#}
+{#      <th width="86" scope="col">Total Beds </th>#}
+{#      <th width="89" scope="col">Total Baths </th>#}
+{#      <th width="104" scope="col">Total Garages </th>#}
+      <th width="130" scope="col">Address</th>
+      <th width="93" scope="col">Landmarks</th>
+{#      <th width="62" scope="col">Pictures</th>#}
+{#      <th width="82" scope="col">Video</th>#}
+{#      <th width="153" scope="col">Property Description</th>#}
+      <th width="111" scope="col">Map Location </th>
+      <th width="97" scope="col">Amentities</th>
+      <th width="121" scope="col">Property Status </th>
+      <th width="104" scope="col">Upload Date </th>
+      <th width="88" scope="col">Sale Type </th>
+      <th width="114" scope="col">Available Date </th>
+      <th width="91" scope="col">Year Built </th>
+      <th width="117" scope="col">Nearest Facilities</th>
+        <th width="117" scope="col">Bought By</th>
+      <th width="24" scope="col">&nbsp;</th>
+      <th width="39" scope="col">&nbsp;</th>
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td> {{ loop.index }} </td>
+      <td> {{ i["propertytitle"] }} </td>
+      <td> {{ i["propertytype"] }} </td>
+      <td> {{ i["priceofproperty"] }} </td>
+{#      <td> {{ i["totalarea"] }} </td>#}
+{#      <td> {{ i["housesqft"] }} </td>#}
+{#      <td> {{ i["totalbeds"] }} </td>#}
+{#      <td> {{ i["totalbaths"] }} </td>#}
+{#      <td> {{ i["totalgarages"] }} </td>#}
+      <td> {{ i["propertylocation"] }} <br>  {{ i["city"] }}  <br>  {{ i["state"] }}  <br>  {{ i["pin"] }}  <br>  {{ i["country"] }}  </td>
+      <td> {{ i["landmarks"] }} </td>
+{#      <td> {{ i["pic1"] }} <br>  {{ i["pic2"] }} <br>  {{ i["pic3"] }} </td>#}
+{#      <td> {{ i["video"]}}  </td>#}
+{#      <td> {{ i["propertydescription"] }} </td>#}
+      <td> {{ i["gmaplocation"] }} </td>
+      <td> {{ i["amentities"] }} </td>
+      <td> {{ i["propertystatus"] }} </td>
+      <td> {{ i["uploaddate"] }} </td>
+      <td> {{ i["saletype"] }} </td>
+      <td> {{ i["availabledate"] }} </td>
+      <td> {{ i["yearbuilt"] }} </td>
+      <td> {{ i["nearestfacilities"] }}  </td>
+         <td> {{ i["bought"] }}  </td>
+      <td><a href="/agent_editproperty{{ i["propertyid"] }}#locations" class="btn btn-success">Edit</a></td>
+      <td><a href="/deleteproperty{{ i["propertyid"] }}#locations" class="btn btn-danger">Delete</a></td>
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+
+{% endblock %}

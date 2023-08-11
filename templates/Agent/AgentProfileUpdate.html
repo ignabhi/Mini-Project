@@ -1,0 +1,54 @@
+{% extends "Agenthome.html" %}
+{% block body %}
+
+<form action="/editagentprofilepost" method="post" enctype="multipart/form-data" name="form1" id="form1">
+  <table class="table table-hover">
+    <tr>
+      <th scope="row" bgcolor="#ff8c00" width="200">Agent Name </th>
+      <td>
+        <input type="text" name="textfield" value="{{ data['agentname'] }}" class="form-control" placeholder="Enter Name"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Email</th>
+      <td>
+        <input type="text" name="textfield3" value="{{ data['email'] }}" class="form-control" pattern="[a-zA-Z0-9.-_]{1,}@[a-zA-Z.-]{2,}[.]{1}[a-zA-Z]{2,}" placeholder="Enter Email Address"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Photo</th>
+      <td><img src="{{ data['photo'] }}" height="50" width="50" class="rounded-circle">
+        <input type="file" name="file"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">Gender</th>
+      <td>
+        <select name="select" class="form-control">
+            <option value="male" {% if data['gender']=="male" %}selected {% endif %}>Male</option>
+            <option value="female" {% if data['gender']=="female" %}selected {% endif %}>Female</option>
+          </select>
+      </td>
+    </tr>
+  <tr>
+      <th scope="row" bgcolor="#ff8c00">Phone</th>
+      <td>
+        <input type="text" name="textfield2" value="{{ data['phone'] }}" class="form-control" pattern="[789][0-9]{9}" placeholder="Enter Phone Number"/>
+      </td>
+    </tr>
+    <tr>
+      <th scope="row" bgcolor="#ff8c00">About</th>
+      <td>
+        <textarea name="textarea" class="form-control" placeholder="Enter About">{{ data['about'] }}</textarea>
+      </td>
+    </tr>
+    <tr>
+      <th colspan="2" scope="row">
+          <div align="center">
+              <input type="submit" name="Submit" value="Update" class="btn btn-primary btn-style"/>
+      </div></th>
+    </tr>
+  </table>
+</form>
+
+{% endblock %}

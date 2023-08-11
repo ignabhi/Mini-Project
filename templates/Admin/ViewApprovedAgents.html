@@ -1,0 +1,47 @@
+{% extends 'Adminindex.html' %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="/admin_viewapprovedagents_searchapprovedagents#locations">
+  <table class="table table-hover">
+    <tr>
+      <th width="200">Search</th>
+      <td>
+        <input type="text" name="textfield" class="form-control"/>
+      </td>
+      <td width="72">
+        <div align="center">
+          <input type="submit" name="Submit" value="Go" class="btn btn-primary btn-style"/>
+        </div>
+      </td>
+    </tr>
+  </table>
+  <table class="table table-hover">
+    <tr>
+      <th width="68" scope="col" bgcolor="#ff8c00">SNo</th>
+      <th width="92" scope="col" bgcolor="#ff8c00">Agent Name </th>
+      <th width="65" scope="col" bgcolor="#ff8c00">Phone</th>
+      <th width="59" scope="col" bgcolor="#ff8c00">Email</th>
+      <th width="63" scope="col" bgcolor="#ff8c00">Photo</th>
+      <th width="69" scope="col" bgcolor="#ff8c00">Gender</th>
+      <th width="62" scope="col" bgcolor="#ff8c00">About</th>
+      <th width="62" scope="col" bgcolor="#ff8c00">Status</th>
+      <td width="52" bgcolor="#ff8c00">&nbsp;</td>
+{#      <th width="125" scope="col" bgcolor="#ff8c00">&nbsp;</th>#}
+    </tr>
+      {% for i in data %}
+    <tr>
+      <td> {{ loop.index }} </td>
+      <td> {{ i["agentname"] }} </td>
+      <td> {{ i["phone"] }} </td>
+      <td> {{ i["email"] }} </td>
+      <td> <img src="{{ i["photo"] }}" width="100" height="100" class="rounded-circle"> </td>
+      <td> {{ i["gender"] }} </td>
+      <td> {{ i["about"] }} </td>
+      <td> {{ i["status"] }} </td>
+      <td><div align="center"><a href="/rejectload2/{{ i["agentid"] }}#locations" class="btn btn-danger">Reject</a></div></td>
+{#      <td><div align="center"><a href="/viewpropertiesbyagentid{{ i["agentid"] }}" class="btn btn-primary btn-style">View Properties</a></div></td>#}
+    </tr>
+      {% endfor %}
+  </table>
+</form>
+{% endblock %}

@@ -1,0 +1,27 @@
+{% extends "listing.html" %}
+{% block body %}
+
+<form id="form1" name="form1" method="post" action="">
+    <a href="/sendpageload" class="btn btn-danger">Click Here</a> to send a complaint
+        <br/>
+    <table class="table table-hover">
+    <tr>
+      <th scope="col" bgcolor="#ff8c00">SNo</th>
+      <th scope="col" bgcolor="#ff8c00">Date</th>
+      <th scope="col" bgcolor="#ff8c00">Complaint</th>
+      <th scope="col" bgcolor="#ff8c00">Reply</th>
+{#      <th scope="col" bgcolor="#ff8c00">Status</th>#}
+    </tr>
+        {% for i in data %}
+    <tr>
+      <td> {{ loop.index }} </td>
+      <td> {{ i['date'] }} </td>
+      <td> {{ i['complaint'] }} </td>
+      <td> {{ i['reply'] }} </td>
+{#      <td> {{ i['status'] }} </td>#}
+    </tr>
+        {% endfor %}
+  </table>
+</form>
+
+{% endblock %}
